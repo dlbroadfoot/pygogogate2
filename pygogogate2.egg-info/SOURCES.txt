@@ -1,0 +1,8 @@
+LICENSE
+setup.py
+pygogogate2/__init__.py
+pygogogate2.egg-info/PKG-INFO
+pygogogate2.egg-info/SOURCES.txt
+pygogogate2.egg-info/dependency_links.txt
+pygogogate2.egg-info/requires.txt
+pygogogate2.egg-info/top_level.txt
