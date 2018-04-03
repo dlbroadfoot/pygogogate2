@@ -1,0 +1,11 @@
+sudo: false
+language: python
+script: touch foo
+deploy:
+  provider: pypi
+  user: dbroadfoot
+  password:
+    secure: BFwBCmuAa9vgEV8E0T1AUSZLyeG84apqbWtZjU0V0uhKXtJ7vrceKCNIlZp9IBzkBFVszWXTtadH/gQ23iRi8JniUF2DTIO949Ypsz6FgsOfeABJn3AdZ0t0mbHWaBdkDUR7pX+ravIELZ8LP6///d2ulo5KcBumR7Kw73uKQBycTZrtfW1qp1ghVOWgjL5VJyWynrAYm1nNWr3yddQSKRqRRuG9ss0yPjsHdpAtuB37iuDLS4In8mRAtBqx4wzqc3YkdrylF5b9OQNBrmEcsf4Wbr8JSAh/QGwZ0advfQEn2FrgyA995uadY4p0QMZtBM8vIoACHyXm3jbIM28WnZaLhhvP5dGakp3cpIlA6X7apixJLgRdoXIuSi8d0QgECoXAUp9CPIJIcsUs3Ziu/2NPH6gPjBcmgJr2LVmwaDcC7qaaVnrA+XMogSSjKQf+0MgBV4BPgtmrQW3CdwgzMHsfpzuCR+kXAkZ7s7TCqa0kiK+bRS8Wg8HRYbKDN5Y29KsuTdutCm+7goIH6bfazUoENGZ08tMEWKbOGRlm7ts2q3JatEVBxz21EiD4BkOfn5TQalvUQBi9shBlE4cTyDNmaLc2BAeuvNQucL6M/IvXnzX01tsAAk69B/tmaa9GGjiKelkNm+Zg5LGcbKK8OSdwXMppPnNH1/TAdf0se9o=
+  on:
+    all_branches: true
+    tags: true
