@@ -1,6 +1,9 @@
-# pygogogate2
+# pygogogate2 
 Python wrapper for Gogogate2 API
 =======
+
+[![Build Status](https://travis-ci.org/dlbroadfoot/pygogogate2.svg?branch=master)](https://travis-ci.org/dlbroadfoot/pygogogate2)
+
 # Introduction
 
 This is a python module aiming to interact with the Gogogate2 API.
