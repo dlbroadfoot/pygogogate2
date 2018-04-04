@@ -4,6 +4,8 @@ Python wrapper for Gogogate2 API
 
 [![Build Status](https://travis-ci.org/dlbroadfoot/pygogogate2.svg?branch=master)](https://travis-ci.org/dlbroadfoot/pygogogate2)
 
+PyPi Package: <https://pypi.python.org/pypi/pygogogate2/>
+
 # Introduction
 
 This is a python module aiming to interact with the Gogogate2 API.
@@ -16,9 +18,11 @@ Getting Started
 # Usage
 
 ```python
+pip install 'pygogogate2'
+
 from pygogogate2 import Gogogate2API as pygogogate2
 
-gogate2 = pygogogate2(username, password, brand)
+gogate2 = pygogogate2(username, password, ip_address)
 ```
 
 # Methods
