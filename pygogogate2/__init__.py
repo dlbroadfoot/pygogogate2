@@ -130,7 +130,7 @@ class Gogogate2API:
         return self.activate(device_id)
 
 
-BS = 8
+BS = 16
 pad = lambda s: s + (BS - len(s) % BS) * chr(BS - len(s) % BS)
 unpad = lambda s: s[0:-s[-1]]
 
