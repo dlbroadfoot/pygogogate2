@@ -14,6 +14,7 @@ class Gogogate2API:
 
     STATE_OPEN = 'open'
     STATE_CLOSED = 'closed'
+    STATE_ACTIVATING = 'activating'
 
     USERAGENT = "okhttp/3.9.1"
 
@@ -34,6 +35,7 @@ class Gogogate2API:
             self.host_uri = 'http://' + ip_address
         self.api_code = None
         self._logged_in = False
+        self._device_states = {}
         self.cipher = AESCipher(self.APP_ID)
 
     def make_request(self, command):
@@ -76,6 +78,7 @@ class Gogogate2API:
 
             try:
                 self.apicode = devices.find('apicode').text
+                self._device_states = {}
                 for doorNum in range(1, 4):
                     door = devices.find('door' + str(doorNum))
                     doorName = door.find('name').text
@@ -88,6 +91,7 @@ class Gogogate2API:
                                 dev[id] = item.text
                         garage_state = door.find('status').text
                         dev['status'] = self.DOOR_STATE[garage_state]
+                        self._device_states[doorNum] = self.DOOR_STATE[garage_state]
                         garage_doors.append(dev)
 
                 return garage_doors
@@ -109,9 +113,19 @@ class Gogogate2API:
 
         return False
 
-    def activate(self, device_id):
+    def activate(self, device_id, expected_current_state):
         if not self.apicode:
             self.get_devices()
+
+        if self._device_states.has_key(device_id):
+            current_state = self._device_states[device_id]
+            if expected_current_state != current_state:
+                self.logger.warning('Gogogate2 - Will not activate. Device not in expected current state %s. Actual state %s', expected_current_state, current_state)
+                return False
+
+        
+        self._device_states[device_id] = STATE_ACTIVATING
+
         response = self.make_request('["{username}","{password}","activate","{device_id}","{apicode}"]'.format(
             username=self.username,
             password=self.password,
@@ -122,12 +136,12 @@ class Gogogate2API:
 
     def close_device(self, device_id):
         """Close Gogogate Device."""
-        return self.activate(device_id)
+        return self.activate(device_id, STATE_OPEN)
 
 
     def open_device(self, device_id):
         """Open Gogogate Device."""
-        return self.activate(device_id)
+        return self.activate(device_id, STATE_CLOSED)
 
 
 BS = 16
