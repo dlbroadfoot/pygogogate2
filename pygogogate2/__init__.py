@@ -117,7 +117,7 @@ class Gogogate2API:
         if not self.apicode:
             self.get_devices()
 
-        if self._device_states.has_key(device_id):
+        if device_id in self._device_states:
             current_state = self._device_states[device_id]
             if expected_current_state != current_state:
                 self.logger.warning('Gogogate2 - Will not activate. Device not in expected current state %s. Actual state %s', expected_current_state, current_state)
