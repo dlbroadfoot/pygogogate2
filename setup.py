@@ -6,7 +6,7 @@ with open('LICENSE') as f:
 
 setup(
     name='pygogogate2',
-    version='0.1.0',
+    version='0.1.1',
     description='Python package for controlling Gogogate2-Enabled Garage Door',
     author='David Broadfoot',
     author_email='dbroadfoot@gmail.com',
