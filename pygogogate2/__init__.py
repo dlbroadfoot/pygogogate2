@@ -124,7 +124,7 @@ class Gogogate2API:
                 return False
 
         
-        self._device_states[device_id] = STATE_ACTIVATING
+        self._device_states[device_id] = self.STATE_ACTIVATING
 
         response = self.make_request('["{username}","{password}","activate","{device_id}","{apicode}"]'.format(
             username=self.username,
