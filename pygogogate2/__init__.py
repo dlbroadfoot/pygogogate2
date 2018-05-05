@@ -136,12 +136,12 @@ class Gogogate2API:
 
     def close_device(self, device_id):
         """Close Gogogate Device."""
-        return self.activate(device_id, STATE_OPEN)
+        return self.activate(device_id, self.STATE_OPEN)
 
 
     def open_device(self, device_id):
         """Open Gogogate Device."""
-        return self.activate(device_id, STATE_CLOSED)
+        return self.activate(device_id, self.STATE_CLOSED)
 
 
 BS = 16
