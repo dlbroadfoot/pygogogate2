@@ -23,6 +23,10 @@ pip install 'pygogogate2'
 from pygogogate2 import Gogogate2API as pygogogate2
 
 gogate2 = pygogogate2(username, password, ip_address)
+
+gogate2.get_status(1)
+
+gogate2.get_temperature(1)
 ```
 
 # Methods
@@ -32,6 +36,9 @@ def get_devices(self):
        
 def get_status(self, device_id):
 """Return current door status(open/closed)"""
+
+def get_temperature(self, device_id):
+"""Return current door temperature(F)"""
 
 def close_device(self, device_id):
 """Send request to close the door."""

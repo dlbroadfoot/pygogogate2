@@ -113,6 +113,21 @@ class Gogogate2API:
 
         return False
 
+    def get_temperature(self, device_id):
+        """List only MyQ garage door devices."""
+        devices = self.get_devices()
+
+        if devices != False:
+            for device in devices:
+                if device['door'] == device_id:
+                    # gogogate returns '-1000000' when the door does not have a value
+                    if device['temperature'] == "-1000000":
+                        return 0.0
+                    else:
+                        celcius = float(device['temperature'])
+                        return celcius
+        return False
+
     def activate(self, device_id, expected_current_state):
         if not self.apicode:
             self.get_devices()
