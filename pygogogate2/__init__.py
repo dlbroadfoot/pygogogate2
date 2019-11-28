@@ -27,12 +27,15 @@ class Gogogate2API:
 
     logger = logging.getLogger(__name__)
 
-    def __init__(self, username, password, ip_address):
+    def __init__(self, username, password, ip_address, secure_connection = False):
         """Initialize the API object."""
         self.username = username
         self.password = password
         if ip_address is not None:
-            self.host_uri = 'http://' + ip_address
+            if local == False:
+                self.host_uri = 'http://' + ip_address
+            else:
+                self.host_uri = 'https://' + ip_address
         self.api_code = None
         self._logged_in = False
         self._device_states = {}
