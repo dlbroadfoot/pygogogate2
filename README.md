@@ -49,3 +49,18 @@ def open_device(self, device_id):
 ### Disclaimer
 
 The code here is based off of an unsupported API from [Gogogate2](https://www.gogogate.com/) and is subject to change without notice. The authors claim no responsibility for damages to your garage door or property by use of the code within.
+
+# Development
+```
+# Setup the virtual environemnt.
+python -m venv venv
+
+# Enter venv
+source venv/bin/activate
+
+# Install dependencies.
+pip install -r requirements.txt
+
+# Test code
+python setup.py test
+```

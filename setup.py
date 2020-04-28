@@ -15,6 +15,8 @@ setup(
     packages=['pygogogate2'],
     package_dir={'pygogogate2': 'pygogogate2'},
     data_files = [('',['LICENSE'])],
+    test_suite='tests',
+    tests_require=['requests-mock'],
     install_requires=[
         'pycryptodomex'
     ]
