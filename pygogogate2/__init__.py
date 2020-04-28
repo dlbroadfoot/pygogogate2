@@ -80,6 +80,7 @@ class Gogogate2API:
             try:
                 apicode_element = devices.find('apicode')
                 if apicode_element is None:
+                    self.logger.error('Gogogate2 - Invalid username or password provided.')
                     return False
 
                 self.apicode = apicode_element.text
