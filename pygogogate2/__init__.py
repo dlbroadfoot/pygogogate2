@@ -37,6 +37,7 @@ class Gogogate2API:
         self._logged_in = False
         self._device_states = {}
         self.cipher = AESCipher(self.APP_ID)
+        self.apicode = None
 
     def make_request(self, command):
         try:
@@ -77,7 +78,12 @@ class Gogogate2API:
             garage_doors = []
 
             try:
-                self.apicode = devices.find('apicode').text
+                apicode_element = devices.find('apicode')
+                if apicode_element is None:
+                    self.logger.error('Gogogate2 - Invalid username or password provided.')
+                    return False
+
+                self.apicode = apicode_element.text
                 self._device_states = {}
                 for doorNum in range(1, 4):
                     door = devices.find('door' + str(doorNum))
@@ -99,7 +105,7 @@ class Gogogate2API:
                 print(ex)
                 return False
         else:
-            return False;
+            return False
 
 
     def get_status(self, device_id):
@@ -120,11 +126,15 @@ class Gogogate2API:
         if devices != False:
             for device in devices:
                 if device['door'] == device_id:
+                    temp = device.get('temperature')
+                    if temp is None:
+                        return False
+
                     # gogogate returns '-1000000' when the door does not have a value
-                    if device['temperature'] == "-1000000":
+                    if temp == "-1000000":
                         return 0.0
                     else:
-                        celcius = float(device['temperature'])
+                        celcius = float(temp)
                         return celcius
         return False
 
