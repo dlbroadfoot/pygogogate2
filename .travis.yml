@@ -3,9 +3,9 @@ language: python
 script: touch foo
 deploy:
   provider: pypi
-  user: dbroadfoot
+  user: dlbroadfoot
   password:
     secure: ZcRCIH6xclsaH9vDa4QTGKu2ywm6F3WsCu4CJi/FTK7XQYKK7LVPYl5fzvMcnXSZxC5qQ1upNMfMJjI54H7urifQlVAiyNVtg+dT9TljK7x3qghMoH2AhmUY5S3OzpGtliu5q3Xbgg1m3goc8gT6+BPilUuWyDpMl4k2d5kjDymV+/ZqI7fO4a2SnumZDtk+ymMITyyB/MgL0ebh9b9qpoAQLyxgsx7YqkF2fFS1mR3fjbBg29mDHZCpNiJVFP0AeivcEWEfoEGzUSeKEoKb1TWKbD4R+9TY+D3DhLlShI6Bu1NYL4PiR40VbkHiUvESHLmCJbnlwmxfE04EDcaEtnZFGJXjY/kjRoTFE4Csf2jqkQIJPzAtODJUtAF9RjoqT1wAgr8idyhwPclWZQJAGFB+aBjTNt4iCwQb6ChB6eRJCHg7Eu+qm2HgBRqepdgr/2lq5lcZu0W3efJ+hC9yrwEw6S9KEC+Ij2aw0vq8yD6D8dNeHuU98oCpK/Gm4ix2kScuca42BGvoKouaq7sH2wYaVVLSk7AqRnhQaIsvqB1Qe89Huy1E9LNxaKzPPWCc9UBTGv1RDhHo/ds4TvDpYQ9Dej+LgtBZhH+nXOc6MjvW6UhI296aW05ThIVmq6Z/asINOrM6RV/svOH2Fk+my9BaAbJdva9TDabCfglPzZg=
   on:
     tags: true
-    skip_cleanuo: true
+    skip_cleanup: true
